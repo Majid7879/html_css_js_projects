@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #575669;
+    font-family: sans-serif;
+
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e3f2fd;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.menu {
+    width: 300px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.open {
+    height: fit-content;
+}
+
+.open .selected svg {
+    transform: rotate(90deg);
+}
+
+.menu .selected {
+    width: 100%;
+    height: 60px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    text-transform: capitalize;
+}
+
+.menu .selected svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.menu .selected:hover {
+    background-color: #f4f4f4;
+}
+
+.menu .selected span i {
+    margin-right: 20px;
+    color: var(--color);
+}
+
+.menu .options {
+    width: 100%;
+    height: fit-content;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+.menu .options .option {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+.menu .options .option:hover,
+.active {
+    background-color: #f4f4f4 !important;
+}
+
+.menu .options .option i {
+    width: 50px;
+    height: 50px;
+    text-align: start;
+    line-height: 50px;
+    color: var(--color);
+}
