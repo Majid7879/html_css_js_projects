@@ -7,6 +7,10 @@
     font-family: inter, sans-serif;
 }
 
+.remove {
+    display: none !important;
+}
+
 /* varables */
 :root {
     --primary-color: #4CAF4F;
@@ -231,6 +235,8 @@ h4,
     outline: none;
     text-wrap: nowrap;
     border: 1px solid var(--primary-color);
+    width: fit-content;
+    height: fit-content;
 }
 
 .btn-secondary.normal {
@@ -265,5 +271,5 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }

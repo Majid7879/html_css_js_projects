@@ -37,6 +37,19 @@ body {
     --fw-semiBold: 600;
     --fw-regular: 400;
     --fw-medium: 500;
+
+    --xs: 0;
+    --sm: 576px;
+    --md: 768px;
+    --lg: 992px;
+    --xl: 1200px;
+    --xxl: 1400px;
+
+    /* overflow-x: hidden; */
+}
+
+body {
+    overflow-x: hidden;
 }
 
 /* start header */
@@ -44,7 +57,7 @@ header {
     width: 100%;
     height: 84px;
     background-color: var(--silver-color);
-    /* padding: 0 10%; */
+    padding: 0 5% !important;
 }
 
 header .container {
@@ -55,9 +68,19 @@ header .container {
     align-items: center;
 }
 
+header .container .logo {
+    max-width: 12%;
+    min-width: 100px;
+    height: 100%;
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
 header .container .logo a img {
-    width: auto;
-    height: 24px;
+    max-width: 100%;
+
+    /* height: 24px; */
     user-select: none;
 }
 
@@ -81,6 +104,138 @@ header .container .login_signup {
     height: 40px;
     gap: 20px;
     margin-left: 20px;
+    align-items: center;
+}
+
+header .container .login_signup button {
+    /* display: flex; */
+    height: 100%;
+    /* padding: 8px 16px; */
+}
+
+header .container .menu-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2px;
+    display: none;
+}
+
+
+header .container .menu-icon span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--black-color);
+}
+
+@media (max-width: 1400px) {
+    header .container ul.links li {
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 1200px) {
+    header .container .menu-icon {
+        display: flex;
+        z-index: 1000;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    header .container .menu-icon span {
+        transition: 0.5s;
+    }
+
+    header .container .menu-icon.close-icon span {
+        position: absolute;
+        transform: rotateZ(45deg);
+    }
+
+    header .container .menu-icon.close-icon span:last-child {
+        transform: rotateZ(135deg);
+    }
+
+    header .container ul.links {
+        /* display: none; */
+    }
+
+    header .container ul.links {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        right: 0;
+        top: 0;
+        background-color: var(--white-color);
+        box-shadow: -2px 0 4px #ddd;
+        width: 50%;
+        height: 100vh;
+        z-index: 1000;
+        padding-top: 84px;
+    }
+
+    header .container ul.links.open {
+        display: flex;
+    }
+
+    header .container ul.links li {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 0;
+
+    }
+
+    header .container ul.links li a {
+        display: block;
+        padding: 0 20px;
+    }
+
+    header .container ul.links li a:hover {
+        background-color: hsla(0, 0%, 0%, 0.1);
+    }
+
+    header .container ul.links li a:active,
+    header .container ul.links li a.active {
+        background-color: hsla(0, 0%, 0%, 0.2);
+    }
+}
+
+@media (max-width: 992px) {
+    header .container .login_signup {
+        display: flex;
+        height: 30px;
+        gap: 10px;
+        margin-left: 20px;
+    }
+
+    header .container .login_signup button {
+        /* display: flex; */
+        height: 100%;
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {
+    header .container .login_signup button {
+        height: 20px;
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+
+    header .container .menu-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    header .container .menu-icon span {
+        height: 3px;
+    }
 }
 
 /* end header */
@@ -88,7 +243,7 @@ header .container .login_signup {
 .hero {
     background-color: var(--silver-color);
     width: 100%;
-    height: 600px;
+    min-height: 600px;
     padding: 96px 10%;
     position: relative;
     text-align: center;
@@ -130,17 +285,63 @@ header .container .login_signup {
     opacity: 1;
 }
 
+@media (max-width: 1400px) {
+    .hero .content h1 {
+        font-size: 48px;
+    }
+
+    .hero .content p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero .container {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .hero .container div.image {
+        Width: 50%;
+        height: fit-content;
+        text-align: start;
+    }
+
+    .hero .container div.image img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {
+    .hero .content h1 {
+        font-size: 24px;
+    }
+
+    .hero .content p {
+        font-size: 12px;
+    }
+}
 
 /* end hero section */
 /* start clients section */
 .clients {
     width: 100%;
-    height: 190px;
+    min-height: 190px;
+    padding-bottom: 15px;
 }
 
 .clients .container {
     flex-direction: column;
     align-items: center;
+    position: relative;
+}
+
+.clients .container .content {
+    text-align: center;
 }
 
 .clients .container .client_logos {
@@ -149,7 +350,65 @@ header .container .login_signup {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 500;
 }
+
+.clients .container .client_logos::-webkit-scrollbar-track {
+    display: none;
+}
+
+.clients .container .control-btn {
+    position: absolute;
+    bottom: -10px;
+    width: calc(100% + 30px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clients .container .control-btn button {
+    width: 30px;
+    border: none;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    color: var(--d_grey-color);
+    /* height: ; */
+}
+
+.clients .container .control-btn button:hover {
+    background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.clients .container .control-btn button:active {
+    background-color: hsla(0, 0%, 0%, 0.2);
+}
+
+@media (max-width: 1400px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+
+    .clients .container h2,
+    .head2 {
+        font-size: 28px;
+    }
+
+    .rg2-text {
+        font-size: 14px;
+    }
+
+    .clients .container .client_logos {
+        justify-content: center;
+        gap: 30px;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 576px) {}
 
 /* end clients section */
 /* start commuity section */
@@ -171,10 +430,10 @@ header .container .login_signup {
 .community .container .cards {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 10px 0;
-    gap: 20px;
+    gap: 30px;
 }
 
 .community .container .cards .card {
@@ -182,7 +441,9 @@ header .container .login_signup {
     height: 280px;
     padding: 24px 16px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(171, 190, 209, 0.2);
+    box-shadow:
+        0 2px 4px rgba(171, 190, 209, 0.2),
+        0 0px 4px rgba(171, 190, 209, 0.2);
 }
 
 .community .container .cards .card .top {
@@ -206,6 +467,15 @@ header .container .login_signup {
     padding: 0 16px;
 }
 
+@media (max-width: 1400px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {}
 
 /* end clients section */
 /* start unlock section */
@@ -216,7 +486,9 @@ header .container .login_signup {
 
 .unlock .container {
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .unlock .container div {
@@ -225,12 +497,44 @@ header .container .login_signup {
 }
 
 .unlock .container .content {
-    padding-right: 60px;
+    padding-right: 10%;
+    min-width: 600px;
+    max-width: 800px;
 }
 
 .unlock .container .content h2,
 .unlock .container .content p {
-    max-width: 600px;
+    max-width: 100%;
+}
+
+@media (max-width: 1400px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+
+    .unlock .container .content {
+        min-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {
+
+    .unlock .container .content {
+        min-width: 240px;
+    }
+
+    /* 
+    .unlock .container .content h2 {
+        min-width: 240px;
+
+    }
+
+    .unlock .container .content p {
+        min-width: 240px;
+    } */
 }
 
 /* end unlock section */
@@ -250,14 +554,14 @@ header .container .login_signup {
 }
 
 .achievements .container>div {
-    min-width: 40%;
-    max-width: 40%;
+    width: 500px;
 }
 
 .achievements .container div.counts {
+    min-width: 600px;
     display: flex;
     flex-wrap: wrap;
-    /* column-gap: 30px; */
+    column-gap: 30px;
     row-gap: 40px;
     justify-content: space-between;
 }
@@ -276,6 +580,42 @@ header .container .login_signup {
     flex-grow: 1;
 }
 
+@media (max-width: 1400px) {
+
+    .achievements .container div.content {
+        width: 100%;
+    }
+
+
+    .achievements .container div.counts {
+        min-width: fit-content;
+        /* gap: 20px 30px; */
+    }
+
+    /* .achievements .container div.counts>div {
+        width: 255px;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+
+    }
+
+    .achievements .container div.counts>div .text {
+        flex-grow: 1;
+    } */
+
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {}
+
 /* end achievements section */
 /* start customers section */
 .customers {
@@ -287,10 +627,23 @@ header .container .login_signup {
 
 .customers .container {
     gap: 70px;
+    /* flex-wrap: wrap; */
 }
 
+/* .customers .container .image {
+    width: 30%;
+    min-width: 200px;
+}
+
+.customers .container .image img {
+    max-width: 100%;
+    height: auto;
+} */
+
 .customers .container .content {
-    width: 100%;
+    flex-shrink: 1;
+    width: 70%;
+    min-width: 500px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -304,6 +657,73 @@ header .container .login_signup {
     align-items: center;
 
 }
+
+.customers .container .content .customer a:last-child {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+
+}
+
+/* .customers .container .content .customer a {
+    width: 10%;
+    min-width: 48px;
+}
+
+.customers .container .content .customer a img {
+    max-width: 100%;
+    height: auto;
+} */
+@media (max-width: 1200px) {
+
+    .customers .container {
+        flex-wrap: wrap;
+    }
+
+    .customers .container .image {
+        width: 100%;
+    }
+
+    .customers .container .content {
+        width: 100%;
+        height: auto;
+    }
+
+    .customers .container .content .customer a img {
+        width: 32px;
+        height: auto;
+    }
+
+    .customers .container .content .customer a:last-child {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+    .customers .container {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .customers .container .image img {
+        width: 30%;
+        min-width: 150px;
+        height: auto;
+    }
+
+    .customers .container .content {
+        min-width: 300px;
+    }
+
+
+    .customers .container .content .customer {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 576px) {}
 
 /* end customers section */
 /* start commuity2 section */
@@ -337,8 +757,8 @@ header .container .login_signup {
 }
 
 .community2 .container .cards .card {
-    width: 368;
-    height: 366px;
+    width: 350px;
+    /* height: 366px; */
     padding: 0;
     border-radius: 8px;
     /* box-shadow: 0 2px 4px rgba(171, 190, 209, 0.2); */
@@ -346,32 +766,34 @@ header .container .login_signup {
     align-items: center;
     flex-direction: column;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .community2 .container .cards .card .top {
     width: 100%;
-    /* display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center; */
-    /* height: 280px; */
+    height: auto;
+}
+
+.community2 .container .cards .card .top img {
+    max-width: 100%;
+    height: auto;
 }
 
 
 
 .community2 .container .cards .card .bottom {
-    width: 317px;
-    height: 176px;
+    width: 85%;
+    height: fit-content;
     text-align: center;
     padding: 16px;
     background-color: var(--silver-color);
-    transform: translateY(-96px);
+    transform: translateY(-50px);
     border-radius: 8px;
     display: flex;
     /* align-items: center; */
     flex-direction: column;
     position: absolute;
-    bottom: -96px;
+    bottom: -100px;
     justify-content: space-between;
 }
 
@@ -385,6 +807,29 @@ header .container .login_signup {
     width: fit-content;
     margin: auto;
 }
+
+@media (max-width: 1400px) {
+    .community2 .container .cards {
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .community2 .container .cards .card {
+        width: 300px;
+    }
+
+    .community2 .container .cards .card .bottom h4 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {}
 
 /* end commuity2 section */
 /* start footer */
@@ -410,17 +855,17 @@ footer .container.top h1 {
 
 footer .container.bottom {
     width: 100%;
-    height: 330px;
+    min-height: 330px;
     text-align: center;
     background-color: var(--black-color);
-    padding: 64px 165px;
+    padding: 64px 10%;
     color: var(--white-color);
-    gap: 125px;
+    gap: 40px;
     justify-content: space-between;
 }
 
 footer .container.bottom .company-info {
-    width: 350px;
+    width: 300px;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -453,8 +898,9 @@ footer .container.bottom .company-info .social-links a:hover svg path {
 }
 
 footer .container.bottom .links {
-    width: 632px;
-    height: 200px;
+    width: 60%;
+    min-width: 600px;
+    min-height: 200px;
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
@@ -462,7 +908,7 @@ footer .container.bottom .links {
 }
 
 footer .container.bottom .links div.col {
-    width: 160px;
+    min-width: 160px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -486,7 +932,8 @@ footer .container.bottom .links div.col form {
 
 footer .container.bottom .links div.col form input {
     width: 100%;
-    min-width: 255px;
+    min-width: 200px;
+    max-width: 400px;
     height: 40px;
     background-color: hsla(0, 0%, 100%, 0.2);
     border: none;
@@ -514,5 +961,58 @@ footer .container.bottom .links div.col form button::placeholder {
     color: #FFFFFF;
 }
 
+@media (max-width: 1400px) {
+    footer .container.top h1 {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 1200px) {
+    footer .container.bottom {
+        flex-direction: column-reverse;
+        row-gap: 70px;
+    }
+
+
+    footer .container.bottom .company-info {
+        width: 100%;
+    }
+
+    footer .container.bottom .links {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    footer .container.top h1 {
+        width: 80%;
+        font-size: 32px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    footer .container.bottom .links {
+        min-width: 0;
+
+        flex-direction: column-reverse;
+    }
+
+    footer .container.bottom .links div.col form input {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {}
 
 /* end footer */
+/* media quiery */
+@media (max-width: 1400px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {}
