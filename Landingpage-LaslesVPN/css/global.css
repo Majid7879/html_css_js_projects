@@ -1,0 +1,91 @@
+/* font */
+@font-face {
+    font-family: 'rubik';
+    src: url('../font/Rubik-VariableFont_wght.ttf') format('ttf'),
+        url('//font/Rubik-Italic-VariableFont_wght.ttf') format('ttf');
+}
+
+/* font awesome icons */
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/webfonts/fa-solid-900.woff2");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'rubik';
+}
+
+:root {
+    --fa-style-family-classic: 'Font Awesome 6 Free';
+    --fa-font-solid: normal 900 1em/1 'Font Awesome 6 Free';
+
+    font-size: 16px;
+}
+
+:root {
+    --primary-color: #F53838;
+    --text-primary: #0B132A;
+    --text-secondary: #4F5665;
+    --success-color: #2FAB73;
+    --border-color: #DDDDDD;
+
+
+    --fz-primary: 3.125rem;
+    /* 50px */
+    --fz-secondary: 2.19rem;
+    /* 35px */
+    --fz-subtitle1: 1.6rem;
+    /* 25px */
+    --fz-subtitle2: 1.125rem;
+    /* 18px */
+    --fz-paragraph: 1rem;
+    /* 16px */
+
+
+
+    --fw-bold: 700;
+    --fw-medium: 500;
+    --fw-regular: 400;
+    /*10 15 20 30 50 60 */
+
+    --space-xm: 10px;
+    --space-sm: 15px;
+    --space-md: 20px;
+    --space-lg: 30px;
+    --space-xl: 50px;
+    --space-xxl: 60px;
+
+    --trasnition: 0.5s;
+
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* links */
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: var(--trasnition);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* images */
+img {
+    max-width: 100%;
+    height: auto;
+}
